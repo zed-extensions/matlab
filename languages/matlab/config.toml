@@ -1,5 +1,12 @@
 name = "MATLAB"
 grammar = "matlab"
-path_suffixes = [".m"]
+path_suffixes = ["m"]
 line_comments = ["% "]
 hard_tabs = false
+autoclose_before = "\"]})'"
+brackets = [
+  { start = "{", end = "}", close = true, newline = false },
+  { start = "[", end = "]", close = true, newline = false },
+  { start = "(", end = ")", close = true, newline = false },
+  { start = "'", end = "'", close = true, newline = false },
+]
