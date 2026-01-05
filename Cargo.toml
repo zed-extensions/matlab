@@ -1,15 +1,11 @@
 [package]
-name = "matlab"
+name = "zed_matlab"
 version = "0.2.0"
 edition = "2021"
 
 [lib]
+path = "src/matlab.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
 zed_extension_api = "0.7.0"
-
-[profile.release]
-opt-level = "z"
-lto = "fat"
-strip = true

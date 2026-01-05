@@ -21,10 +21,7 @@ impl zed::Extension for MatlabExtension {
             });
         }
 
-        Err(format!(
-            "matlab_ls not found in PATH. Please install the MATLAB language server. See https://github.com/watermarkhu/zed-matlab for installation instructions."
-        )
-        .into())
+        Err("matlab_ls not found in PATH. Please install the MATLAB language server. See https://github.com/watermarkhu/zed-matlab for installation instructions.".to_string())
     }
 
     fn language_server_workspace_configuration(
