@@ -9,13 +9,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
       - id: generate-token
         name: extension_bump::generate_token
         uses: actions/create-github-app-token@v2
         with:
           app-id: ${{ secrets.ZED_ZIPPY_APP_ID }}
           private-key: ${{ secrets.ZED_ZIPPY_APP_PRIVATE_KEY }}
+      - name: steps::checkout_repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          clean: false
       - name: extension_bump::create_version_tag
         uses: actions/github-script@v7
         with:
