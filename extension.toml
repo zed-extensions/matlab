@@ -1,7 +1,7 @@
 id = "matlab"
 name = "MATLAB"
 description = "MATLAB support for Zed"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = [
   "Mark Shui Hu <watermarkhu@gmail.com>"
@@ -10,7 +10,7 @@ repository = "https://github.com/watermarkhu/zed-matlab"
 
 [grammars.matlab]
 repository = "https://github.com/acristoffers/tree-sitter-matlab"
-rev = "1bccabdbd420a9c3c3f96f36d7f9e65b3d9c88ef"
+rev = "574dde565caddf8cf44eec7df3cb89eb96053ed7"
 
 [language_servers.matlab-language-server]
 name = "MATLAB LSP"
