@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - id: generate-token
+        name: extension_bump::generate_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.ZED_ZIPPY_APP_ID }}
+          private-key: ${{ secrets.ZED_ZIPPY_APP_PRIVATE_KEY }}
+      - name: extension_bump::create_version_tag
+        uses: actions/github-script@v7
+        with:
+          script: |-
+            github.rest.git.createRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: 'refs/tags/v0.1.1-test',
+                sha: context.sha
+            })
+          github-token: ${{ steps.generate-token.outputs.token }}
