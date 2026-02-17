@@ -12,7 +12,6 @@ impl zed::Extension for MatlabExtension {
         _language_server_id: &LanguageServerId,
         worktree: &zed::Worktree,
     ) -> Result<zed::Command> {
-        // Check if matlab_ls is available in PATH
         if let Some(path) = worktree.which("matlab_ls") {
             return Ok(zed::Command {
                 command: path,
@@ -21,7 +20,11 @@ impl zed::Extension for MatlabExtension {
             });
         }
 
-        Err("matlab_ls not found in PATH. Please install the MATLAB language server. See https://github.com/watermarkhu/zed-matlab for installation instructions.".to_string())
+        Err(
+            "matlab_ls not found in PATH. Please install the MATLAB language server. \
+            See https://github.com/zed-extensions/matlab for installation instructions."
+                .to_string(),
+        )
     }
 
     fn language_server_workspace_configuration(
