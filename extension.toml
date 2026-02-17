@@ -1,7 +1,7 @@
 id = "matlab"
 name = "MATLAB"
 description = "MATLAB support for Zed"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = [
   "Mark Shui Hu <watermarkhu@gmail.com>"
